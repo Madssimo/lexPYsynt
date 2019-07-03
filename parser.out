@@ -1,0 +1,1350 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    ALFANUMERICO
+    DIGITO
+    ESTERM
+    IDENTIFICADOR
+    LETRA
+
+Grammar
+
+Rule 0     S' -> prog
+Rule 1     prog -> sentencias
+Rule 2     sentencias -> sentencias sentencia
+Rule 3     sentencias -> sentencia
+Rule 4     sentencias -> empty
+Rule 5     sentencia -> asig PCOMA
+Rule 6     sentencia -> sentwritestr PCOMA
+Rule 7     sentencia -> sentwritelog PCOMA
+Rule 8     sentencia -> sentwriteintro PCOMA
+Rule 9     sentencia -> sentwritetabla PCOMA
+Rule 10    expresion -> NOT expresion
+Rule 11    expresion -> expresion DOBLEENTONCES expresion
+Rule 12    expresion -> expresion ENTONCES expresion
+Rule 13    expresion -> expresion AND expresion
+Rule 14    expresion -> expresion OR expresion
+Rule 15    expresion -> NUMERO
+Rule 16    expresion -> APAR expresion CPAR
+Rule 17    expresion -> identificador
+Rule 18    expresion -> senttauto
+Rule 19    expresion -> sentcontra
+Rule 20    expresion -> sentdeci
+Rule 21    asig -> identificador ASIGNACION expresion
+Rule 22    identificador -> ID
+Rule 23    sentwriteintro -> WRITEINTRO APAR CPAR
+Rule 24    sentwritelog -> WRITELOG APAR expresion CPAR
+Rule 25    sentwritestr -> WRITESTR APAR CTEXTO CPAR
+Rule 26    sentwritetabla -> WRITETABLA APAR matriz CPAR
+Rule 27    matriz -> NOT matriz
+Rule 28    matriz -> matriz DOBLEENTONCES matriz
+Rule 29    matriz -> matriz ENTONCES matriz
+Rule 30    matriz -> matriz AND matriz
+Rule 31    matriz -> matriz OR matriz
+Rule 32    matriz -> APAR matriz CPAR
+Rule 33    matriz -> identificador
+Rule 34    senttauto -> TAUTO APAR matriz CPAR
+Rule 35    sentcontra -> CONTRA APAR matriz CPAR
+Rule 36    sentdeci -> DECI APAR matriz CPAR
+Rule 37    empty -> <empty>
+
+Terminals, with rules where they appear
+
+ALFANUMERICO         : 
+AND                  : 13 30
+APAR                 : 16 23 24 25 26 32 34 35 36
+ASIGNACION           : 21
+CONTRA               : 35
+CPAR                 : 16 23 24 25 26 32 34 35 36
+CTEXTO               : 25
+DECI                 : 36
+DIGITO               : 
+DOBLEENTONCES        : 11 28
+ENTONCES             : 12 29
+ESTERM               : 
+ID                   : 22
+IDENTIFICADOR        : 
+LETRA                : 
+NOT                  : 10 27
+NUMERO               : 15
+OR                   : 14 31
+PCOMA                : 5 6 7 8 9
+TAUTO                : 34
+WRITEINTRO           : 23
+WRITELOG             : 24
+WRITESTR             : 25
+WRITETABLA           : 26
+error                : 
+
+Nonterminals, with rules where they appear
+
+asig                 : 5
+empty                : 4
+expresion            : 10 11 11 12 12 13 13 14 14 16 21 24
+identificador        : 17 21 33
+matriz               : 26 27 28 28 29 29 30 30 31 31 32 34 35 36
+prog                 : 0
+sentcontra           : 19
+sentdeci             : 20
+sentencia            : 2 3
+sentencias           : 1 2
+senttauto            : 18
+sentwriteintro       : 8
+sentwritelog         : 7
+sentwritestr         : 6
+sentwritetabla       : 9
+
+Parsing method: SLR
+
+state 0
+
+    (0) S' -> . prog
+    (1) prog -> . sentencias
+    (2) sentencias -> . sentencias sentencia
+    (3) sentencias -> . sentencia
+    (4) sentencias -> . empty
+    (5) sentencia -> . asig PCOMA
+    (6) sentencia -> . sentwritestr PCOMA
+    (7) sentencia -> . sentwritelog PCOMA
+    (8) sentencia -> . sentwriteintro PCOMA
+    (9) sentencia -> . sentwritetabla PCOMA
+    (37) empty -> .
+    (21) asig -> . identificador ASIGNACION expresion
+    (25) sentwritestr -> . WRITESTR APAR CTEXTO CPAR
+    (24) sentwritelog -> . WRITELOG APAR expresion CPAR
+    (23) sentwriteintro -> . WRITEINTRO APAR CPAR
+    (26) sentwritetabla -> . WRITETABLA APAR matriz CPAR
+    (22) identificador -> . ID
+
+  ! shift/reduce conflict for WRITESTR resolved as shift
+  ! shift/reduce conflict for WRITELOG resolved as shift
+  ! shift/reduce conflict for WRITEINTRO resolved as shift
+  ! shift/reduce conflict for WRITETABLA resolved as shift
+  ! shift/reduce conflict for ID resolved as shift
+    $end            reduce using rule 37 (empty -> .)
+    WRITESTR        shift and go to state 11
+    WRITELOG        shift and go to state 12
+    WRITEINTRO      shift and go to state 13
+    WRITETABLA      shift and go to state 14
+    ID              shift and go to state 15
+
+  ! WRITESTR        [ reduce using rule 37 (empty -> .) ]
+  ! WRITELOG        [ reduce using rule 37 (empty -> .) ]
+  ! WRITEINTRO      [ reduce using rule 37 (empty -> .) ]
+  ! WRITETABLA      [ reduce using rule 37 (empty -> .) ]
+  ! ID              [ reduce using rule 37 (empty -> .) ]
+
+    prog                           shift and go to state 1
+    sentencias                     shift and go to state 2
+    sentencia                      shift and go to state 3
+    empty                          shift and go to state 4
+    asig                           shift and go to state 5
+    sentwritestr                   shift and go to state 6
+    sentwritelog                   shift and go to state 7
+    sentwriteintro                 shift and go to state 8
+    sentwritetabla                 shift and go to state 9
+    identificador                  shift and go to state 10
+
+state 1
+
+    (0) S' -> prog .
+
+
+
+state 2
+
+    (1) prog -> sentencias .
+    (2) sentencias -> sentencias . sentencia
+    (5) sentencia -> . asig PCOMA
+    (6) sentencia -> . sentwritestr PCOMA
+    (7) sentencia -> . sentwritelog PCOMA
+    (8) sentencia -> . sentwriteintro PCOMA
+    (9) sentencia -> . sentwritetabla PCOMA
+    (21) asig -> . identificador ASIGNACION expresion
+    (25) sentwritestr -> . WRITESTR APAR CTEXTO CPAR
+    (24) sentwritelog -> . WRITELOG APAR expresion CPAR
+    (23) sentwriteintro -> . WRITEINTRO APAR CPAR
+    (26) sentwritetabla -> . WRITETABLA APAR matriz CPAR
+    (22) identificador -> . ID
+
+    $end            reduce using rule 1 (prog -> sentencias .)
+    WRITESTR        shift and go to state 11
+    WRITELOG        shift and go to state 12
+    WRITEINTRO      shift and go to state 13
+    WRITETABLA      shift and go to state 14
+    ID              shift and go to state 15
+
+    sentencia                      shift and go to state 16
+    asig                           shift and go to state 5
+    sentwritestr                   shift and go to state 6
+    sentwritelog                   shift and go to state 7
+    sentwriteintro                 shift and go to state 8
+    sentwritetabla                 shift and go to state 9
+    identificador                  shift and go to state 10
+
+state 3
+
+    (3) sentencias -> sentencia .
+
+    $end            reduce using rule 3 (sentencias -> sentencia .)
+    WRITESTR        reduce using rule 3 (sentencias -> sentencia .)
+    WRITELOG        reduce using rule 3 (sentencias -> sentencia .)
+    WRITEINTRO      reduce using rule 3 (sentencias -> sentencia .)
+    WRITETABLA      reduce using rule 3 (sentencias -> sentencia .)
+    ID              reduce using rule 3 (sentencias -> sentencia .)
+
+
+state 4
+
+    (4) sentencias -> empty .
+
+    $end            reduce using rule 4 (sentencias -> empty .)
+    WRITESTR        reduce using rule 4 (sentencias -> empty .)
+    WRITELOG        reduce using rule 4 (sentencias -> empty .)
+    WRITEINTRO      reduce using rule 4 (sentencias -> empty .)
+    WRITETABLA      reduce using rule 4 (sentencias -> empty .)
+    ID              reduce using rule 4 (sentencias -> empty .)
+
+
+state 5
+
+    (5) sentencia -> asig . PCOMA
+
+    PCOMA           shift and go to state 17
+
+
+state 6
+
+    (6) sentencia -> sentwritestr . PCOMA
+
+    PCOMA           shift and go to state 18
+
+
+state 7
+
+    (7) sentencia -> sentwritelog . PCOMA
+
+    PCOMA           shift and go to state 19
+
+
+state 8
+
+    (8) sentencia -> sentwriteintro . PCOMA
+
+    PCOMA           shift and go to state 20
+
+
+state 9
+
+    (9) sentencia -> sentwritetabla . PCOMA
+
+    PCOMA           shift and go to state 21
+
+
+state 10
+
+    (21) asig -> identificador . ASIGNACION expresion
+
+    ASIGNACION      shift and go to state 22
+
+
+state 11
+
+    (25) sentwritestr -> WRITESTR . APAR CTEXTO CPAR
+
+    APAR            shift and go to state 23
+
+
+state 12
+
+    (24) sentwritelog -> WRITELOG . APAR expresion CPAR
+
+    APAR            shift and go to state 24
+
+
+state 13
+
+    (23) sentwriteintro -> WRITEINTRO . APAR CPAR
+
+    APAR            shift and go to state 25
+
+
+state 14
+
+    (26) sentwritetabla -> WRITETABLA . APAR matriz CPAR
+
+    APAR            shift and go to state 26
+
+
+state 15
+
+    (22) identificador -> ID .
+
+    DOBLEENTONCES   reduce using rule 22 (identificador -> ID .)
+    ENTONCES        reduce using rule 22 (identificador -> ID .)
+    AND             reduce using rule 22 (identificador -> ID .)
+    OR              reduce using rule 22 (identificador -> ID .)
+    CPAR            reduce using rule 22 (identificador -> ID .)
+    ASIGNACION      reduce using rule 22 (identificador -> ID .)
+    PCOMA           reduce using rule 22 (identificador -> ID .)
+
+
+state 16
+
+    (2) sentencias -> sentencias sentencia .
+
+    $end            reduce using rule 2 (sentencias -> sentencias sentencia .)
+    WRITESTR        reduce using rule 2 (sentencias -> sentencias sentencia .)
+    WRITELOG        reduce using rule 2 (sentencias -> sentencias sentencia .)
+    WRITEINTRO      reduce using rule 2 (sentencias -> sentencias sentencia .)
+    WRITETABLA      reduce using rule 2 (sentencias -> sentencias sentencia .)
+    ID              reduce using rule 2 (sentencias -> sentencias sentencia .)
+
+
+state 17
+
+    (5) sentencia -> asig PCOMA .
+
+    $end            reduce using rule 5 (sentencia -> asig PCOMA .)
+    WRITESTR        reduce using rule 5 (sentencia -> asig PCOMA .)
+    WRITELOG        reduce using rule 5 (sentencia -> asig PCOMA .)
+    WRITEINTRO      reduce using rule 5 (sentencia -> asig PCOMA .)
+    WRITETABLA      reduce using rule 5 (sentencia -> asig PCOMA .)
+    ID              reduce using rule 5 (sentencia -> asig PCOMA .)
+
+
+state 18
+
+    (6) sentencia -> sentwritestr PCOMA .
+
+    $end            reduce using rule 6 (sentencia -> sentwritestr PCOMA .)
+    WRITESTR        reduce using rule 6 (sentencia -> sentwritestr PCOMA .)
+    WRITELOG        reduce using rule 6 (sentencia -> sentwritestr PCOMA .)
+    WRITEINTRO      reduce using rule 6 (sentencia -> sentwritestr PCOMA .)
+    WRITETABLA      reduce using rule 6 (sentencia -> sentwritestr PCOMA .)
+    ID              reduce using rule 6 (sentencia -> sentwritestr PCOMA .)
+
+
+state 19
+
+    (7) sentencia -> sentwritelog PCOMA .
+
+    $end            reduce using rule 7 (sentencia -> sentwritelog PCOMA .)
+    WRITESTR        reduce using rule 7 (sentencia -> sentwritelog PCOMA .)
+    WRITELOG        reduce using rule 7 (sentencia -> sentwritelog PCOMA .)
+    WRITEINTRO      reduce using rule 7 (sentencia -> sentwritelog PCOMA .)
+    WRITETABLA      reduce using rule 7 (sentencia -> sentwritelog PCOMA .)
+    ID              reduce using rule 7 (sentencia -> sentwritelog PCOMA .)
+
+
+state 20
+
+    (8) sentencia -> sentwriteintro PCOMA .
+
+    $end            reduce using rule 8 (sentencia -> sentwriteintro PCOMA .)
+    WRITESTR        reduce using rule 8 (sentencia -> sentwriteintro PCOMA .)
+    WRITELOG        reduce using rule 8 (sentencia -> sentwriteintro PCOMA .)
+    WRITEINTRO      reduce using rule 8 (sentencia -> sentwriteintro PCOMA .)
+    WRITETABLA      reduce using rule 8 (sentencia -> sentwriteintro PCOMA .)
+    ID              reduce using rule 8 (sentencia -> sentwriteintro PCOMA .)
+
+
+state 21
+
+    (9) sentencia -> sentwritetabla PCOMA .
+
+    $end            reduce using rule 9 (sentencia -> sentwritetabla PCOMA .)
+    WRITESTR        reduce using rule 9 (sentencia -> sentwritetabla PCOMA .)
+    WRITELOG        reduce using rule 9 (sentencia -> sentwritetabla PCOMA .)
+    WRITEINTRO      reduce using rule 9 (sentencia -> sentwritetabla PCOMA .)
+    WRITETABLA      reduce using rule 9 (sentencia -> sentwritetabla PCOMA .)
+    ID              reduce using rule 9 (sentencia -> sentwritetabla PCOMA .)
+
+
+state 22
+
+    (21) asig -> identificador ASIGNACION . expresion
+    (10) expresion -> . NOT expresion
+    (11) expresion -> . expresion DOBLEENTONCES expresion
+    (12) expresion -> . expresion ENTONCES expresion
+    (13) expresion -> . expresion AND expresion
+    (14) expresion -> . expresion OR expresion
+    (15) expresion -> . NUMERO
+    (16) expresion -> . APAR expresion CPAR
+    (17) expresion -> . identificador
+    (18) expresion -> . senttauto
+    (19) expresion -> . sentcontra
+    (20) expresion -> . sentdeci
+    (22) identificador -> . ID
+    (34) senttauto -> . TAUTO APAR matriz CPAR
+    (35) sentcontra -> . CONTRA APAR matriz CPAR
+    (36) sentdeci -> . DECI APAR matriz CPAR
+
+    NOT             shift and go to state 29
+    NUMERO          shift and go to state 30
+    APAR            shift and go to state 31
+    ID              shift and go to state 15
+    TAUTO           shift and go to state 35
+    CONTRA          shift and go to state 36
+    DECI            shift and go to state 37
+
+    identificador                  shift and go to state 27
+    expresion                      shift and go to state 28
+    senttauto                      shift and go to state 32
+    sentcontra                     shift and go to state 33
+    sentdeci                       shift and go to state 34
+
+state 23
+
+    (25) sentwritestr -> WRITESTR APAR . CTEXTO CPAR
+
+    CTEXTO          shift and go to state 38
+
+
+state 24
+
+    (24) sentwritelog -> WRITELOG APAR . expresion CPAR
+    (10) expresion -> . NOT expresion
+    (11) expresion -> . expresion DOBLEENTONCES expresion
+    (12) expresion -> . expresion ENTONCES expresion
+    (13) expresion -> . expresion AND expresion
+    (14) expresion -> . expresion OR expresion
+    (15) expresion -> . NUMERO
+    (16) expresion -> . APAR expresion CPAR
+    (17) expresion -> . identificador
+    (18) expresion -> . senttauto
+    (19) expresion -> . sentcontra
+    (20) expresion -> . sentdeci
+    (22) identificador -> . ID
+    (34) senttauto -> . TAUTO APAR matriz CPAR
+    (35) sentcontra -> . CONTRA APAR matriz CPAR
+    (36) sentdeci -> . DECI APAR matriz CPAR
+
+    NOT             shift and go to state 29
+    NUMERO          shift and go to state 30
+    APAR            shift and go to state 31
+    ID              shift and go to state 15
+    TAUTO           shift and go to state 35
+    CONTRA          shift and go to state 36
+    DECI            shift and go to state 37
+
+    expresion                      shift and go to state 39
+    identificador                  shift and go to state 27
+    senttauto                      shift and go to state 32
+    sentcontra                     shift and go to state 33
+    sentdeci                       shift and go to state 34
+
+state 25
+
+    (23) sentwriteintro -> WRITEINTRO APAR . CPAR
+
+    CPAR            shift and go to state 40
+
+
+state 26
+
+    (26) sentwritetabla -> WRITETABLA APAR . matriz CPAR
+    (27) matriz -> . NOT matriz
+    (28) matriz -> . matriz DOBLEENTONCES matriz
+    (29) matriz -> . matriz ENTONCES matriz
+    (30) matriz -> . matriz AND matriz
+    (31) matriz -> . matriz OR matriz
+    (32) matriz -> . APAR matriz CPAR
+    (33) matriz -> . identificador
+    (22) identificador -> . ID
+
+    NOT             shift and go to state 43
+    APAR            shift and go to state 41
+    ID              shift and go to state 15
+
+    matriz                         shift and go to state 42
+    identificador                  shift and go to state 44
+
+state 27
+
+    (17) expresion -> identificador .
+
+    DOBLEENTONCES   reduce using rule 17 (expresion -> identificador .)
+    ENTONCES        reduce using rule 17 (expresion -> identificador .)
+    AND             reduce using rule 17 (expresion -> identificador .)
+    OR              reduce using rule 17 (expresion -> identificador .)
+    CPAR            reduce using rule 17 (expresion -> identificador .)
+    PCOMA           reduce using rule 17 (expresion -> identificador .)
+
+
+state 28
+
+    (21) asig -> identificador ASIGNACION expresion .
+    (11) expresion -> expresion . DOBLEENTONCES expresion
+    (12) expresion -> expresion . ENTONCES expresion
+    (13) expresion -> expresion . AND expresion
+    (14) expresion -> expresion . OR expresion
+
+    PCOMA           reduce using rule 21 (asig -> identificador ASIGNACION expresion .)
+    DOBLEENTONCES   shift and go to state 45
+    ENTONCES        shift and go to state 46
+    AND             shift and go to state 47
+    OR              shift and go to state 48
+
+
+state 29
+
+    (10) expresion -> NOT . expresion
+    (10) expresion -> . NOT expresion
+    (11) expresion -> . expresion DOBLEENTONCES expresion
+    (12) expresion -> . expresion ENTONCES expresion
+    (13) expresion -> . expresion AND expresion
+    (14) expresion -> . expresion OR expresion
+    (15) expresion -> . NUMERO
+    (16) expresion -> . APAR expresion CPAR
+    (17) expresion -> . identificador
+    (18) expresion -> . senttauto
+    (19) expresion -> . sentcontra
+    (20) expresion -> . sentdeci
+    (22) identificador -> . ID
+    (34) senttauto -> . TAUTO APAR matriz CPAR
+    (35) sentcontra -> . CONTRA APAR matriz CPAR
+    (36) sentdeci -> . DECI APAR matriz CPAR
+
+    NOT             shift and go to state 29
+    NUMERO          shift and go to state 30
+    APAR            shift and go to state 31
+    ID              shift and go to state 15
+    TAUTO           shift and go to state 35
+    CONTRA          shift and go to state 36
+    DECI            shift and go to state 37
+
+    expresion                      shift and go to state 49
+    identificador                  shift and go to state 27
+    senttauto                      shift and go to state 32
+    sentcontra                     shift and go to state 33
+    sentdeci                       shift and go to state 34
+
+state 30
+
+    (15) expresion -> NUMERO .
+
+    DOBLEENTONCES   reduce using rule 15 (expresion -> NUMERO .)
+    ENTONCES        reduce using rule 15 (expresion -> NUMERO .)
+    AND             reduce using rule 15 (expresion -> NUMERO .)
+    OR              reduce using rule 15 (expresion -> NUMERO .)
+    CPAR            reduce using rule 15 (expresion -> NUMERO .)
+    PCOMA           reduce using rule 15 (expresion -> NUMERO .)
+
+
+state 31
+
+    (16) expresion -> APAR . expresion CPAR
+    (10) expresion -> . NOT expresion
+    (11) expresion -> . expresion DOBLEENTONCES expresion
+    (12) expresion -> . expresion ENTONCES expresion
+    (13) expresion -> . expresion AND expresion
+    (14) expresion -> . expresion OR expresion
+    (15) expresion -> . NUMERO
+    (16) expresion -> . APAR expresion CPAR
+    (17) expresion -> . identificador
+    (18) expresion -> . senttauto
+    (19) expresion -> . sentcontra
+    (20) expresion -> . sentdeci
+    (22) identificador -> . ID
+    (34) senttauto -> . TAUTO APAR matriz CPAR
+    (35) sentcontra -> . CONTRA APAR matriz CPAR
+    (36) sentdeci -> . DECI APAR matriz CPAR
+
+    NOT             shift and go to state 29
+    NUMERO          shift and go to state 30
+    APAR            shift and go to state 31
+    ID              shift and go to state 15
+    TAUTO           shift and go to state 35
+    CONTRA          shift and go to state 36
+    DECI            shift and go to state 37
+
+    expresion                      shift and go to state 50
+    identificador                  shift and go to state 27
+    senttauto                      shift and go to state 32
+    sentcontra                     shift and go to state 33
+    sentdeci                       shift and go to state 34
+
+state 32
+
+    (18) expresion -> senttauto .
+
+    DOBLEENTONCES   reduce using rule 18 (expresion -> senttauto .)
+    ENTONCES        reduce using rule 18 (expresion -> senttauto .)
+    AND             reduce using rule 18 (expresion -> senttauto .)
+    OR              reduce using rule 18 (expresion -> senttauto .)
+    CPAR            reduce using rule 18 (expresion -> senttauto .)
+    PCOMA           reduce using rule 18 (expresion -> senttauto .)
+
+
+state 33
+
+    (19) expresion -> sentcontra .
+
+    DOBLEENTONCES   reduce using rule 19 (expresion -> sentcontra .)
+    ENTONCES        reduce using rule 19 (expresion -> sentcontra .)
+    AND             reduce using rule 19 (expresion -> sentcontra .)
+    OR              reduce using rule 19 (expresion -> sentcontra .)
+    CPAR            reduce using rule 19 (expresion -> sentcontra .)
+    PCOMA           reduce using rule 19 (expresion -> sentcontra .)
+
+
+state 34
+
+    (20) expresion -> sentdeci .
+
+    DOBLEENTONCES   reduce using rule 20 (expresion -> sentdeci .)
+    ENTONCES        reduce using rule 20 (expresion -> sentdeci .)
+    AND             reduce using rule 20 (expresion -> sentdeci .)
+    OR              reduce using rule 20 (expresion -> sentdeci .)
+    CPAR            reduce using rule 20 (expresion -> sentdeci .)
+    PCOMA           reduce using rule 20 (expresion -> sentdeci .)
+
+
+state 35
+
+    (34) senttauto -> TAUTO . APAR matriz CPAR
+
+    APAR            shift and go to state 51
+
+
+state 36
+
+    (35) sentcontra -> CONTRA . APAR matriz CPAR
+
+    APAR            shift and go to state 52
+
+
+state 37
+
+    (36) sentdeci -> DECI . APAR matriz CPAR
+
+    APAR            shift and go to state 53
+
+
+state 38
+
+    (25) sentwritestr -> WRITESTR APAR CTEXTO . CPAR
+
+    CPAR            shift and go to state 54
+
+
+state 39
+
+    (24) sentwritelog -> WRITELOG APAR expresion . CPAR
+    (11) expresion -> expresion . DOBLEENTONCES expresion
+    (12) expresion -> expresion . ENTONCES expresion
+    (13) expresion -> expresion . AND expresion
+    (14) expresion -> expresion . OR expresion
+
+    CPAR            shift and go to state 55
+    DOBLEENTONCES   shift and go to state 45
+    ENTONCES        shift and go to state 46
+    AND             shift and go to state 47
+    OR              shift and go to state 48
+
+
+state 40
+
+    (23) sentwriteintro -> WRITEINTRO APAR CPAR .
+
+    PCOMA           reduce using rule 23 (sentwriteintro -> WRITEINTRO APAR CPAR .)
+
+
+state 41
+
+    (32) matriz -> APAR . matriz CPAR
+    (27) matriz -> . NOT matriz
+    (28) matriz -> . matriz DOBLEENTONCES matriz
+    (29) matriz -> . matriz ENTONCES matriz
+    (30) matriz -> . matriz AND matriz
+    (31) matriz -> . matriz OR matriz
+    (32) matriz -> . APAR matriz CPAR
+    (33) matriz -> . identificador
+    (22) identificador -> . ID
+
+    NOT             shift and go to state 43
+    APAR            shift and go to state 41
+    ID              shift and go to state 15
+
+    matriz                         shift and go to state 56
+    identificador                  shift and go to state 44
+
+state 42
+
+    (26) sentwritetabla -> WRITETABLA APAR matriz . CPAR
+    (28) matriz -> matriz . DOBLEENTONCES matriz
+    (29) matriz -> matriz . ENTONCES matriz
+    (30) matriz -> matriz . AND matriz
+    (31) matriz -> matriz . OR matriz
+
+    CPAR            shift and go to state 57
+    DOBLEENTONCES   shift and go to state 58
+    ENTONCES        shift and go to state 59
+    AND             shift and go to state 60
+    OR              shift and go to state 61
+
+
+state 43
+
+    (27) matriz -> NOT . matriz
+    (27) matriz -> . NOT matriz
+    (28) matriz -> . matriz DOBLEENTONCES matriz
+    (29) matriz -> . matriz ENTONCES matriz
+    (30) matriz -> . matriz AND matriz
+    (31) matriz -> . matriz OR matriz
+    (32) matriz -> . APAR matriz CPAR
+    (33) matriz -> . identificador
+    (22) identificador -> . ID
+
+    NOT             shift and go to state 43
+    APAR            shift and go to state 41
+    ID              shift and go to state 15
+
+    matriz                         shift and go to state 62
+    identificador                  shift and go to state 44
+
+state 44
+
+    (33) matriz -> identificador .
+
+    CPAR            reduce using rule 33 (matriz -> identificador .)
+    DOBLEENTONCES   reduce using rule 33 (matriz -> identificador .)
+    ENTONCES        reduce using rule 33 (matriz -> identificador .)
+    AND             reduce using rule 33 (matriz -> identificador .)
+    OR              reduce using rule 33 (matriz -> identificador .)
+
+
+state 45
+
+    (11) expresion -> expresion DOBLEENTONCES . expresion
+    (10) expresion -> . NOT expresion
+    (11) expresion -> . expresion DOBLEENTONCES expresion
+    (12) expresion -> . expresion ENTONCES expresion
+    (13) expresion -> . expresion AND expresion
+    (14) expresion -> . expresion OR expresion
+    (15) expresion -> . NUMERO
+    (16) expresion -> . APAR expresion CPAR
+    (17) expresion -> . identificador
+    (18) expresion -> . senttauto
+    (19) expresion -> . sentcontra
+    (20) expresion -> . sentdeci
+    (22) identificador -> . ID
+    (34) senttauto -> . TAUTO APAR matriz CPAR
+    (35) sentcontra -> . CONTRA APAR matriz CPAR
+    (36) sentdeci -> . DECI APAR matriz CPAR
+
+    NOT             shift and go to state 29
+    NUMERO          shift and go to state 30
+    APAR            shift and go to state 31
+    ID              shift and go to state 15
+    TAUTO           shift and go to state 35
+    CONTRA          shift and go to state 36
+    DECI            shift and go to state 37
+
+    expresion                      shift and go to state 63
+    identificador                  shift and go to state 27
+    senttauto                      shift and go to state 32
+    sentcontra                     shift and go to state 33
+    sentdeci                       shift and go to state 34
+
+state 46
+
+    (12) expresion -> expresion ENTONCES . expresion
+    (10) expresion -> . NOT expresion
+    (11) expresion -> . expresion DOBLEENTONCES expresion
+    (12) expresion -> . expresion ENTONCES expresion
+    (13) expresion -> . expresion AND expresion
+    (14) expresion -> . expresion OR expresion
+    (15) expresion -> . NUMERO
+    (16) expresion -> . APAR expresion CPAR
+    (17) expresion -> . identificador
+    (18) expresion -> . senttauto
+    (19) expresion -> . sentcontra
+    (20) expresion -> . sentdeci
+    (22) identificador -> . ID
+    (34) senttauto -> . TAUTO APAR matriz CPAR
+    (35) sentcontra -> . CONTRA APAR matriz CPAR
+    (36) sentdeci -> . DECI APAR matriz CPAR
+
+    NOT             shift and go to state 29
+    NUMERO          shift and go to state 30
+    APAR            shift and go to state 31
+    ID              shift and go to state 15
+    TAUTO           shift and go to state 35
+    CONTRA          shift and go to state 36
+    DECI            shift and go to state 37
+
+    expresion                      shift and go to state 64
+    identificador                  shift and go to state 27
+    senttauto                      shift and go to state 32
+    sentcontra                     shift and go to state 33
+    sentdeci                       shift and go to state 34
+
+state 47
+
+    (13) expresion -> expresion AND . expresion
+    (10) expresion -> . NOT expresion
+    (11) expresion -> . expresion DOBLEENTONCES expresion
+    (12) expresion -> . expresion ENTONCES expresion
+    (13) expresion -> . expresion AND expresion
+    (14) expresion -> . expresion OR expresion
+    (15) expresion -> . NUMERO
+    (16) expresion -> . APAR expresion CPAR
+    (17) expresion -> . identificador
+    (18) expresion -> . senttauto
+    (19) expresion -> . sentcontra
+    (20) expresion -> . sentdeci
+    (22) identificador -> . ID
+    (34) senttauto -> . TAUTO APAR matriz CPAR
+    (35) sentcontra -> . CONTRA APAR matriz CPAR
+    (36) sentdeci -> . DECI APAR matriz CPAR
+
+    NOT             shift and go to state 29
+    NUMERO          shift and go to state 30
+    APAR            shift and go to state 31
+    ID              shift and go to state 15
+    TAUTO           shift and go to state 35
+    CONTRA          shift and go to state 36
+    DECI            shift and go to state 37
+
+    expresion                      shift and go to state 65
+    identificador                  shift and go to state 27
+    senttauto                      shift and go to state 32
+    sentcontra                     shift and go to state 33
+    sentdeci                       shift and go to state 34
+
+state 48
+
+    (14) expresion -> expresion OR . expresion
+    (10) expresion -> . NOT expresion
+    (11) expresion -> . expresion DOBLEENTONCES expresion
+    (12) expresion -> . expresion ENTONCES expresion
+    (13) expresion -> . expresion AND expresion
+    (14) expresion -> . expresion OR expresion
+    (15) expresion -> . NUMERO
+    (16) expresion -> . APAR expresion CPAR
+    (17) expresion -> . identificador
+    (18) expresion -> . senttauto
+    (19) expresion -> . sentcontra
+    (20) expresion -> . sentdeci
+    (22) identificador -> . ID
+    (34) senttauto -> . TAUTO APAR matriz CPAR
+    (35) sentcontra -> . CONTRA APAR matriz CPAR
+    (36) sentdeci -> . DECI APAR matriz CPAR
+
+    NOT             shift and go to state 29
+    NUMERO          shift and go to state 30
+    APAR            shift and go to state 31
+    ID              shift and go to state 15
+    TAUTO           shift and go to state 35
+    CONTRA          shift and go to state 36
+    DECI            shift and go to state 37
+
+    expresion                      shift and go to state 66
+    identificador                  shift and go to state 27
+    senttauto                      shift and go to state 32
+    sentcontra                     shift and go to state 33
+    sentdeci                       shift and go to state 34
+
+state 49
+
+    (10) expresion -> NOT expresion .
+    (11) expresion -> expresion . DOBLEENTONCES expresion
+    (12) expresion -> expresion . ENTONCES expresion
+    (13) expresion -> expresion . AND expresion
+    (14) expresion -> expresion . OR expresion
+
+    DOBLEENTONCES   reduce using rule 10 (expresion -> NOT expresion .)
+    ENTONCES        reduce using rule 10 (expresion -> NOT expresion .)
+    AND             reduce using rule 10 (expresion -> NOT expresion .)
+    OR              reduce using rule 10 (expresion -> NOT expresion .)
+    CPAR            reduce using rule 10 (expresion -> NOT expresion .)
+    PCOMA           reduce using rule 10 (expresion -> NOT expresion .)
+
+  ! DOBLEENTONCES   [ shift and go to state 45 ]
+  ! ENTONCES        [ shift and go to state 46 ]
+  ! AND             [ shift and go to state 47 ]
+  ! OR              [ shift and go to state 48 ]
+
+
+state 50
+
+    (16) expresion -> APAR expresion . CPAR
+    (11) expresion -> expresion . DOBLEENTONCES expresion
+    (12) expresion -> expresion . ENTONCES expresion
+    (13) expresion -> expresion . AND expresion
+    (14) expresion -> expresion . OR expresion
+
+    CPAR            shift and go to state 67
+    DOBLEENTONCES   shift and go to state 45
+    ENTONCES        shift and go to state 46
+    AND             shift and go to state 47
+    OR              shift and go to state 48
+
+
+state 51
+
+    (34) senttauto -> TAUTO APAR . matriz CPAR
+    (27) matriz -> . NOT matriz
+    (28) matriz -> . matriz DOBLEENTONCES matriz
+    (29) matriz -> . matriz ENTONCES matriz
+    (30) matriz -> . matriz AND matriz
+    (31) matriz -> . matriz OR matriz
+    (32) matriz -> . APAR matriz CPAR
+    (33) matriz -> . identificador
+    (22) identificador -> . ID
+
+    NOT             shift and go to state 43
+    APAR            shift and go to state 41
+    ID              shift and go to state 15
+
+    matriz                         shift and go to state 68
+    identificador                  shift and go to state 44
+
+state 52
+
+    (35) sentcontra -> CONTRA APAR . matriz CPAR
+    (27) matriz -> . NOT matriz
+    (28) matriz -> . matriz DOBLEENTONCES matriz
+    (29) matriz -> . matriz ENTONCES matriz
+    (30) matriz -> . matriz AND matriz
+    (31) matriz -> . matriz OR matriz
+    (32) matriz -> . APAR matriz CPAR
+    (33) matriz -> . identificador
+    (22) identificador -> . ID
+
+    NOT             shift and go to state 43
+    APAR            shift and go to state 41
+    ID              shift and go to state 15
+
+    matriz                         shift and go to state 69
+    identificador                  shift and go to state 44
+
+state 53
+
+    (36) sentdeci -> DECI APAR . matriz CPAR
+    (27) matriz -> . NOT matriz
+    (28) matriz -> . matriz DOBLEENTONCES matriz
+    (29) matriz -> . matriz ENTONCES matriz
+    (30) matriz -> . matriz AND matriz
+    (31) matriz -> . matriz OR matriz
+    (32) matriz -> . APAR matriz CPAR
+    (33) matriz -> . identificador
+    (22) identificador -> . ID
+
+    NOT             shift and go to state 43
+    APAR            shift and go to state 41
+    ID              shift and go to state 15
+
+    matriz                         shift and go to state 70
+    identificador                  shift and go to state 44
+
+state 54
+
+    (25) sentwritestr -> WRITESTR APAR CTEXTO CPAR .
+
+    PCOMA           reduce using rule 25 (sentwritestr -> WRITESTR APAR CTEXTO CPAR .)
+
+
+state 55
+
+    (24) sentwritelog -> WRITELOG APAR expresion CPAR .
+
+    PCOMA           reduce using rule 24 (sentwritelog -> WRITELOG APAR expresion CPAR .)
+
+
+state 56
+
+    (32) matriz -> APAR matriz . CPAR
+    (28) matriz -> matriz . DOBLEENTONCES matriz
+    (29) matriz -> matriz . ENTONCES matriz
+    (30) matriz -> matriz . AND matriz
+    (31) matriz -> matriz . OR matriz
+
+    CPAR            shift and go to state 71
+    DOBLEENTONCES   shift and go to state 58
+    ENTONCES        shift and go to state 59
+    AND             shift and go to state 60
+    OR              shift and go to state 61
+
+
+state 57
+
+    (26) sentwritetabla -> WRITETABLA APAR matriz CPAR .
+
+    PCOMA           reduce using rule 26 (sentwritetabla -> WRITETABLA APAR matriz CPAR .)
+
+
+state 58
+
+    (28) matriz -> matriz DOBLEENTONCES . matriz
+    (27) matriz -> . NOT matriz
+    (28) matriz -> . matriz DOBLEENTONCES matriz
+    (29) matriz -> . matriz ENTONCES matriz
+    (30) matriz -> . matriz AND matriz
+    (31) matriz -> . matriz OR matriz
+    (32) matriz -> . APAR matriz CPAR
+    (33) matriz -> . identificador
+    (22) identificador -> . ID
+
+    NOT             shift and go to state 43
+    APAR            shift and go to state 41
+    ID              shift and go to state 15
+
+    matriz                         shift and go to state 72
+    identificador                  shift and go to state 44
+
+state 59
+
+    (29) matriz -> matriz ENTONCES . matriz
+    (27) matriz -> . NOT matriz
+    (28) matriz -> . matriz DOBLEENTONCES matriz
+    (29) matriz -> . matriz ENTONCES matriz
+    (30) matriz -> . matriz AND matriz
+    (31) matriz -> . matriz OR matriz
+    (32) matriz -> . APAR matriz CPAR
+    (33) matriz -> . identificador
+    (22) identificador -> . ID
+
+    NOT             shift and go to state 43
+    APAR            shift and go to state 41
+    ID              shift and go to state 15
+
+    matriz                         shift and go to state 73
+    identificador                  shift and go to state 44
+
+state 60
+
+    (30) matriz -> matriz AND . matriz
+    (27) matriz -> . NOT matriz
+    (28) matriz -> . matriz DOBLEENTONCES matriz
+    (29) matriz -> . matriz ENTONCES matriz
+    (30) matriz -> . matriz AND matriz
+    (31) matriz -> . matriz OR matriz
+    (32) matriz -> . APAR matriz CPAR
+    (33) matriz -> . identificador
+    (22) identificador -> . ID
+
+    NOT             shift and go to state 43
+    APAR            shift and go to state 41
+    ID              shift and go to state 15
+
+    matriz                         shift and go to state 74
+    identificador                  shift and go to state 44
+
+state 61
+
+    (31) matriz -> matriz OR . matriz
+    (27) matriz -> . NOT matriz
+    (28) matriz -> . matriz DOBLEENTONCES matriz
+    (29) matriz -> . matriz ENTONCES matriz
+    (30) matriz -> . matriz AND matriz
+    (31) matriz -> . matriz OR matriz
+    (32) matriz -> . APAR matriz CPAR
+    (33) matriz -> . identificador
+    (22) identificador -> . ID
+
+    NOT             shift and go to state 43
+    APAR            shift and go to state 41
+    ID              shift and go to state 15
+
+    matriz                         shift and go to state 75
+    identificador                  shift and go to state 44
+
+state 62
+
+    (27) matriz -> NOT matriz .
+    (28) matriz -> matriz . DOBLEENTONCES matriz
+    (29) matriz -> matriz . ENTONCES matriz
+    (30) matriz -> matriz . AND matriz
+    (31) matriz -> matriz . OR matriz
+
+    CPAR            reduce using rule 27 (matriz -> NOT matriz .)
+    DOBLEENTONCES   reduce using rule 27 (matriz -> NOT matriz .)
+    ENTONCES        reduce using rule 27 (matriz -> NOT matriz .)
+    AND             reduce using rule 27 (matriz -> NOT matriz .)
+    OR              reduce using rule 27 (matriz -> NOT matriz .)
+
+  ! DOBLEENTONCES   [ shift and go to state 58 ]
+  ! ENTONCES        [ shift and go to state 59 ]
+  ! AND             [ shift and go to state 60 ]
+  ! OR              [ shift and go to state 61 ]
+
+
+state 63
+
+    (11) expresion -> expresion DOBLEENTONCES expresion .
+    (11) expresion -> expresion . DOBLEENTONCES expresion
+    (12) expresion -> expresion . ENTONCES expresion
+    (13) expresion -> expresion . AND expresion
+    (14) expresion -> expresion . OR expresion
+
+    DOBLEENTONCES   reduce using rule 11 (expresion -> expresion DOBLEENTONCES expresion .)
+    CPAR            reduce using rule 11 (expresion -> expresion DOBLEENTONCES expresion .)
+    PCOMA           reduce using rule 11 (expresion -> expresion DOBLEENTONCES expresion .)
+    ENTONCES        shift and go to state 46
+    AND             shift and go to state 47
+    OR              shift and go to state 48
+
+  ! ENTONCES        [ reduce using rule 11 (expresion -> expresion DOBLEENTONCES expresion .) ]
+  ! AND             [ reduce using rule 11 (expresion -> expresion DOBLEENTONCES expresion .) ]
+  ! OR              [ reduce using rule 11 (expresion -> expresion DOBLEENTONCES expresion .) ]
+  ! DOBLEENTONCES   [ shift and go to state 45 ]
+
+
+state 64
+
+    (12) expresion -> expresion ENTONCES expresion .
+    (11) expresion -> expresion . DOBLEENTONCES expresion
+    (12) expresion -> expresion . ENTONCES expresion
+    (13) expresion -> expresion . AND expresion
+    (14) expresion -> expresion . OR expresion
+
+    DOBLEENTONCES   reduce using rule 12 (expresion -> expresion ENTONCES expresion .)
+    ENTONCES        reduce using rule 12 (expresion -> expresion ENTONCES expresion .)
+    CPAR            reduce using rule 12 (expresion -> expresion ENTONCES expresion .)
+    PCOMA           reduce using rule 12 (expresion -> expresion ENTONCES expresion .)
+    AND             shift and go to state 47
+    OR              shift and go to state 48
+
+  ! AND             [ reduce using rule 12 (expresion -> expresion ENTONCES expresion .) ]
+  ! OR              [ reduce using rule 12 (expresion -> expresion ENTONCES expresion .) ]
+  ! DOBLEENTONCES   [ shift and go to state 45 ]
+  ! ENTONCES        [ shift and go to state 46 ]
+
+
+state 65
+
+    (13) expresion -> expresion AND expresion .
+    (11) expresion -> expresion . DOBLEENTONCES expresion
+    (12) expresion -> expresion . ENTONCES expresion
+    (13) expresion -> expresion . AND expresion
+    (14) expresion -> expresion . OR expresion
+
+    DOBLEENTONCES   reduce using rule 13 (expresion -> expresion AND expresion .)
+    ENTONCES        reduce using rule 13 (expresion -> expresion AND expresion .)
+    AND             reduce using rule 13 (expresion -> expresion AND expresion .)
+    OR              reduce using rule 13 (expresion -> expresion AND expresion .)
+    CPAR            reduce using rule 13 (expresion -> expresion AND expresion .)
+    PCOMA           reduce using rule 13 (expresion -> expresion AND expresion .)
+
+  ! DOBLEENTONCES   [ shift and go to state 45 ]
+  ! ENTONCES        [ shift and go to state 46 ]
+  ! AND             [ shift and go to state 47 ]
+  ! OR              [ shift and go to state 48 ]
+
+
+state 66
+
+    (14) expresion -> expresion OR expresion .
+    (11) expresion -> expresion . DOBLEENTONCES expresion
+    (12) expresion -> expresion . ENTONCES expresion
+    (13) expresion -> expresion . AND expresion
+    (14) expresion -> expresion . OR expresion
+
+    DOBLEENTONCES   reduce using rule 14 (expresion -> expresion OR expresion .)
+    ENTONCES        reduce using rule 14 (expresion -> expresion OR expresion .)
+    OR              reduce using rule 14 (expresion -> expresion OR expresion .)
+    CPAR            reduce using rule 14 (expresion -> expresion OR expresion .)
+    PCOMA           reduce using rule 14 (expresion -> expresion OR expresion .)
+    AND             shift and go to state 47
+
+  ! AND             [ reduce using rule 14 (expresion -> expresion OR expresion .) ]
+  ! DOBLEENTONCES   [ shift and go to state 45 ]
+  ! ENTONCES        [ shift and go to state 46 ]
+  ! OR              [ shift and go to state 48 ]
+
+
+state 67
+
+    (16) expresion -> APAR expresion CPAR .
+
+    DOBLEENTONCES   reduce using rule 16 (expresion -> APAR expresion CPAR .)
+    ENTONCES        reduce using rule 16 (expresion -> APAR expresion CPAR .)
+    AND             reduce using rule 16 (expresion -> APAR expresion CPAR .)
+    OR              reduce using rule 16 (expresion -> APAR expresion CPAR .)
+    CPAR            reduce using rule 16 (expresion -> APAR expresion CPAR .)
+    PCOMA           reduce using rule 16 (expresion -> APAR expresion CPAR .)
+
+
+state 68
+
+    (34) senttauto -> TAUTO APAR matriz . CPAR
+    (28) matriz -> matriz . DOBLEENTONCES matriz
+    (29) matriz -> matriz . ENTONCES matriz
+    (30) matriz -> matriz . AND matriz
+    (31) matriz -> matriz . OR matriz
+
+    CPAR            shift and go to state 76
+    DOBLEENTONCES   shift and go to state 58
+    ENTONCES        shift and go to state 59
+    AND             shift and go to state 60
+    OR              shift and go to state 61
+
+
+state 69
+
+    (35) sentcontra -> CONTRA APAR matriz . CPAR
+    (28) matriz -> matriz . DOBLEENTONCES matriz
+    (29) matriz -> matriz . ENTONCES matriz
+    (30) matriz -> matriz . AND matriz
+    (31) matriz -> matriz . OR matriz
+
+    CPAR            shift and go to state 77
+    DOBLEENTONCES   shift and go to state 58
+    ENTONCES        shift and go to state 59
+    AND             shift and go to state 60
+    OR              shift and go to state 61
+
+
+state 70
+
+    (36) sentdeci -> DECI APAR matriz . CPAR
+    (28) matriz -> matriz . DOBLEENTONCES matriz
+    (29) matriz -> matriz . ENTONCES matriz
+    (30) matriz -> matriz . AND matriz
+    (31) matriz -> matriz . OR matriz
+
+    CPAR            shift and go to state 78
+    DOBLEENTONCES   shift and go to state 58
+    ENTONCES        shift and go to state 59
+    AND             shift and go to state 60
+    OR              shift and go to state 61
+
+
+state 71
+
+    (32) matriz -> APAR matriz CPAR .
+
+    CPAR            reduce using rule 32 (matriz -> APAR matriz CPAR .)
+    DOBLEENTONCES   reduce using rule 32 (matriz -> APAR matriz CPAR .)
+    ENTONCES        reduce using rule 32 (matriz -> APAR matriz CPAR .)
+    AND             reduce using rule 32 (matriz -> APAR matriz CPAR .)
+    OR              reduce using rule 32 (matriz -> APAR matriz CPAR .)
+
+
+state 72
+
+    (28) matriz -> matriz DOBLEENTONCES matriz .
+    (28) matriz -> matriz . DOBLEENTONCES matriz
+    (29) matriz -> matriz . ENTONCES matriz
+    (30) matriz -> matriz . AND matriz
+    (31) matriz -> matriz . OR matriz
+
+    CPAR            reduce using rule 28 (matriz -> matriz DOBLEENTONCES matriz .)
+    DOBLEENTONCES   reduce using rule 28 (matriz -> matriz DOBLEENTONCES matriz .)
+    ENTONCES        shift and go to state 59
+    AND             shift and go to state 60
+    OR              shift and go to state 61
+
+  ! ENTONCES        [ reduce using rule 28 (matriz -> matriz DOBLEENTONCES matriz .) ]
+  ! AND             [ reduce using rule 28 (matriz -> matriz DOBLEENTONCES matriz .) ]
+  ! OR              [ reduce using rule 28 (matriz -> matriz DOBLEENTONCES matriz .) ]
+  ! DOBLEENTONCES   [ shift and go to state 58 ]
+
+
+state 73
+
+    (29) matriz -> matriz ENTONCES matriz .
+    (28) matriz -> matriz . DOBLEENTONCES matriz
+    (29) matriz -> matriz . ENTONCES matriz
+    (30) matriz -> matriz . AND matriz
+    (31) matriz -> matriz . OR matriz
+
+    CPAR            reduce using rule 29 (matriz -> matriz ENTONCES matriz .)
+    DOBLEENTONCES   reduce using rule 29 (matriz -> matriz ENTONCES matriz .)
+    ENTONCES        reduce using rule 29 (matriz -> matriz ENTONCES matriz .)
+    AND             shift and go to state 60
+    OR              shift and go to state 61
+
+  ! AND             [ reduce using rule 29 (matriz -> matriz ENTONCES matriz .) ]
+  ! OR              [ reduce using rule 29 (matriz -> matriz ENTONCES matriz .) ]
+  ! DOBLEENTONCES   [ shift and go to state 58 ]
+  ! ENTONCES        [ shift and go to state 59 ]
+
+
+state 74
+
+    (30) matriz -> matriz AND matriz .
+    (28) matriz -> matriz . DOBLEENTONCES matriz
+    (29) matriz -> matriz . ENTONCES matriz
+    (30) matriz -> matriz . AND matriz
+    (31) matriz -> matriz . OR matriz
+
+    CPAR            reduce using rule 30 (matriz -> matriz AND matriz .)
+    DOBLEENTONCES   reduce using rule 30 (matriz -> matriz AND matriz .)
+    ENTONCES        reduce using rule 30 (matriz -> matriz AND matriz .)
+    AND             reduce using rule 30 (matriz -> matriz AND matriz .)
+    OR              reduce using rule 30 (matriz -> matriz AND matriz .)
+
+  ! DOBLEENTONCES   [ shift and go to state 58 ]
+  ! ENTONCES        [ shift and go to state 59 ]
+  ! AND             [ shift and go to state 60 ]
+  ! OR              [ shift and go to state 61 ]
+
+
+state 75
+
+    (31) matriz -> matriz OR matriz .
+    (28) matriz -> matriz . DOBLEENTONCES matriz
+    (29) matriz -> matriz . ENTONCES matriz
+    (30) matriz -> matriz . AND matriz
+    (31) matriz -> matriz . OR matriz
+
+    CPAR            reduce using rule 31 (matriz -> matriz OR matriz .)
+    DOBLEENTONCES   reduce using rule 31 (matriz -> matriz OR matriz .)
+    ENTONCES        reduce using rule 31 (matriz -> matriz OR matriz .)
+    OR              reduce using rule 31 (matriz -> matriz OR matriz .)
+    AND             shift and go to state 60
+
+  ! AND             [ reduce using rule 31 (matriz -> matriz OR matriz .) ]
+  ! DOBLEENTONCES   [ shift and go to state 58 ]
+  ! ENTONCES        [ shift and go to state 59 ]
+  ! OR              [ shift and go to state 61 ]
+
+
+state 76
+
+    (34) senttauto -> TAUTO APAR matriz CPAR .
+
+    DOBLEENTONCES   reduce using rule 34 (senttauto -> TAUTO APAR matriz CPAR .)
+    ENTONCES        reduce using rule 34 (senttauto -> TAUTO APAR matriz CPAR .)
+    AND             reduce using rule 34 (senttauto -> TAUTO APAR matriz CPAR .)
+    OR              reduce using rule 34 (senttauto -> TAUTO APAR matriz CPAR .)
+    CPAR            reduce using rule 34 (senttauto -> TAUTO APAR matriz CPAR .)
+    PCOMA           reduce using rule 34 (senttauto -> TAUTO APAR matriz CPAR .)
+
+
+state 77
+
+    (35) sentcontra -> CONTRA APAR matriz CPAR .
+
+    DOBLEENTONCES   reduce using rule 35 (sentcontra -> CONTRA APAR matriz CPAR .)
+    ENTONCES        reduce using rule 35 (sentcontra -> CONTRA APAR matriz CPAR .)
+    AND             reduce using rule 35 (sentcontra -> CONTRA APAR matriz CPAR .)
+    OR              reduce using rule 35 (sentcontra -> CONTRA APAR matriz CPAR .)
+    CPAR            reduce using rule 35 (sentcontra -> CONTRA APAR matriz CPAR .)
+    PCOMA           reduce using rule 35 (sentcontra -> CONTRA APAR matriz CPAR .)
+
+
+state 78
+
+    (36) sentdeci -> DECI APAR matriz CPAR .
+
+    DOBLEENTONCES   reduce using rule 36 (sentdeci -> DECI APAR matriz CPAR .)
+    ENTONCES        reduce using rule 36 (sentdeci -> DECI APAR matriz CPAR .)
+    AND             reduce using rule 36 (sentdeci -> DECI APAR matriz CPAR .)
+    OR              reduce using rule 36 (sentdeci -> DECI APAR matriz CPAR .)
+    CPAR            reduce using rule 36 (sentdeci -> DECI APAR matriz CPAR .)
+    PCOMA           reduce using rule 36 (sentdeci -> DECI APAR matriz CPAR .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for WRITESTR in state 0 resolved as shift
+WARNING: shift/reduce conflict for WRITELOG in state 0 resolved as shift
+WARNING: shift/reduce conflict for WRITEINTRO in state 0 resolved as shift
+WARNING: shift/reduce conflict for WRITETABLA in state 0 resolved as shift
+WARNING: shift/reduce conflict for ID in state 0 resolved as shift
