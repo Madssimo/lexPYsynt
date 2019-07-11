@@ -23,7 +23,8 @@ precedence = (
 
 def p_prog(p):
     '''prog : sentencias'''
-    print ("prog")
+    p[0] = p[1]
+    print (p)
 
 def p_sentencias(p):
     '''sentencias : sentencias sentencia
